@@ -1,8 +1,8 @@
 import requests
 from openai import OpenAI
 
-OPENAI_API_KEY = open("../auth/openai_key.txt").read()
-WEATHER_API_KEY = open("../auth/weatherapi_key.txt").read()
+OPENAI_API_KEY = open("../../auth/openai_key.txt").read()
+WEATHER_API_KEY = open("../../auth/weatherapi_key.txt").read()
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
