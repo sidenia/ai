@@ -1,0 +1,25 @@
+o Gmail não aceita mais login via usuário + senha "normal" em apps externos.
+A autenticação SMTP do Gmail agora só funciona de duas formas:
+
+🔑 Soluções possíveis
+1. Gerar uma senha de aplicativo no Gmail (recomendado)
+
+    Se sua conta tiver 2FA (autenticação em duas etapas) ativada:
+    Vá em Minha Conta Google → Segurança → Senhas de app
+    Crie uma senha de app para "E-mail" e escolha "Outro (nome personalizado)" → por exemplo: news-bot.
+    O Google vai gerar uma senha de 16 caracteres (ex: abcd efgh ijkl mnop).
+    Use essa senha no lugar de EMAIL_REM_PASS.
+    👉 Assim, você não precisa expor sua senha real e o login funciona sem erro.
+
+2. Usar OAuth2 (mais complexo)
+
+    É possível autenticar pelo Gmail via OAuth2, mas isso exige configurar credenciais no Google Cloud Console.
+    Para um script pessoal, não vale a pena — melhor usar a senha de aplicativo.
+=====================================================
+em arquivos .bat
+
+:: caminho windows com espaços deve ser entre aspas  duplas
+@echo off
+set "PYTHON_PATH=C:\Users\Sidenia Bezerra\Desktop\AI\news\venv-news\Scripts\python.exe"
+set "SCRIPT_PATH=C:\Users\Sidenia Bezerra\Desktop\AI\news\app\news_agent.py"
+set "LOG_PATH=C:\Users\Sidenia Bezerra\Desktop\AI\news\logs\news_agent.log"
