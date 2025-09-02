@@ -48,15 +48,20 @@ client = OpenAI(api_key=OPENAI_API_KEY, http_client=httpx.Client(timeout=30))
 
 def coletar_noticias(fontes, limite=3):
     noticias = []
+    links_processados = set()
+
     for nome, url in fontes.items():
         feed = feedparser.parse(url)
         for entrada in feed.entries[:limite]:
-            noticias.append({
-                "fonte": nome,
-                "titulo": entrada.title,
-                "link": entrada.link,
-                "resumo": entrada.get("summary", "")
-            })
+            if entrada.link not in links_processados:  # Evita duplicatas
+                noticias.append({
+                    "fonte": nome,
+                    "titulo": entrada.title,
+                    "link": entrada.link,
+                    "resumo": entrada.get("summary", "")
+                })
+                links_processados.add(entrada.link)  # Marca o link como processado
+
     return noticias
 
 def resumir_noticias(noticias):
