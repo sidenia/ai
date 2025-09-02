@@ -123,7 +123,8 @@ def main():
     enviar_email("AI Agent: Resumo diário de notícias", corpo_email)
     # enviar_email("AI Agent: Resumo diário de notícias", "Teste de envio de email - corpo simples.")
     print("✅ Email enviado com sucesso!")
-    fim = datetime.now() print(f"⏱️ Processo finalizado em {(fim - ini).seconds} segundos.")
+    fim = datetime.now() 
+    print(f"⏱️ Processo finalizado em {(fim - ini).seconds} segundos.")
     tempo_processamento = (fim - ini).seconds
     print(f"⏱️ Tempo de processamento: {tempo_processamento} segundos.")
 
